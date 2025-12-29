@@ -275,15 +275,15 @@ const Index = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="name">ФИО *</Label>
-              <Input id="name" required placeholder="Иванов Иван Иванович" />
+              <Input id="name" name="name" required placeholder="Иванов Иван Иванович" />
             </div>
             <div>
               <Label htmlFor="phone">Телефон *</Label>
-              <Input id="phone" type="tel" required placeholder="+7 (999) 123-45-67" />
+              <Input id="phone" name="phone" type="tel" required placeholder="+7 (999) 123-45-67" />
             </div>
             <div>
               <Label htmlFor="email">Email *</Label>
-              <Input id="email" type="email" required placeholder="example@mail.ru" />
+              <Input id="email" name="email" type="email" required placeholder="example@mail.ru" />
             </div>
             <div>
               <Label>Дата и время консультации *</Label>
@@ -301,7 +301,7 @@ const Index = () => {
             </div>
             <div>
               <Label htmlFor="question">Ваш вопрос (необязательно)</Label>
-              <Textarea id="question" placeholder="Опишите вашу ситуацию..." rows={4} />
+              <Textarea id="question" name="question" placeholder="Опишите вашу ситуацию..." rows={4} />
             </div>
             <div className="flex items-start space-x-2">
               <Checkbox id="terms" required />
