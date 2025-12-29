@@ -1,0 +1,16 @@
+{
+  "tests": [
+    {
+      "name": "Get all appointments",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "appointments": "array",
+        "total": "number"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

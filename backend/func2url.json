@@ -1,3 +1,4 @@
 {
+  "get-appointments": "https://functions.poehali.dev/83881173-226b-40bd-b72f-294b6f33751a",
   "send-appointment": "https://functions.poehali.dev/92f76699-895f-4bbe-b6a0-8c24051f9348"
 }
