@@ -1,0 +1,21 @@
+{
+  "tests": [
+    {
+      "name": "Test appointment submission",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "phone": "+79991234567",
+        "email": "test@example.com",
+        "date": "2024-12-31",
+        "question": "Вопрос о лекарствах"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
