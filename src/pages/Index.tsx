@@ -22,11 +22,37 @@ const Index = () => {
   const [medications, setMedications] = useState<string[]>(['']);
   const [interactions, setInteractions] = useState<string[]>([]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowForm(false);
-    setShowThanks(true);
-    toast.success('Заявка отправлена!');
+    const formData = new FormData(e.target as HTMLFormElement);
+    
+    const data = {
+      name: formData.get('name') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string,
+      date: date ? format(date, 'PPP', { locale: ru }) : '',
+      question: formData.get('question') as string
+    };
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/92f76699-895f-4bbe-b6a0-8c24051f9348', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setShowForm(false);
+        setShowThanks(true);
+        toast.success('Заявка отправлена!');
+      } else {
+        toast.error('Ошибка отправки. Попробуйте позже.');
+      }
+    } catch (error) {
+      toast.error('Ошибка соединения');
+    }
   };
 
   const addMedication = () => {
